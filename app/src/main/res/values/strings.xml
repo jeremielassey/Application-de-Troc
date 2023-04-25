@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TrocApp</string>
+    <string name="categorie_prompt">Choisir une categorie</string>
+    <string-array name="categories_produits">
+        <item>Manuelles scolaires</item>
+        <item>Divertissement</item>
+        <item>équipements sportifs</item>
+        <item>Vaisselle</item>
+        <item>Meubles</item>
+    </string-array>
+</resources>
