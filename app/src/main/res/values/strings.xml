@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">TrocApp</string>
+    <string name="add_product">Ajouter</string>
+    <string name="cancel_product">Annuler</string>
     <string name="categorie_prompt">Choisir une categorie</string>
+    <string name="cat1">Manuelles scolaires</string>
+    <string name="cat2">équipements sportifs</string>
+    <string name="cat3">Divertissement</string>
+    <string name="cat4">Meubles</string>
+    <string name="cat5">Vaiselle</string>
+    <string name="nom_produit">Nom produit</string>
+    <string name="description">Description produit</string>
+    <string name="choix_cat">Choisir une Categorie</string>
+    <string name="type_img">image/*</string>
     <string-array name="categories_produits">
         <item>Manuelles scolaires</item>
         <item>Divertissement</item>

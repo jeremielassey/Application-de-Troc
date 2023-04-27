@@ -13,4 +13,21 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Widget.TrocApp.Chip.Choice" parent="Widget.MaterialComponents.Chip.Choice">
+        ...
+        <item name="materialThemeOverlay">@style/ThemeOverlay.TrocApp.Chip.Choice</item>
+    </style>
+    <style name="ThemeOverlay.TrocApp.Chip.Choice" parent="">
+        <item name="elevationOverlayEnabled">false</item>
+    </style>
+    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">24dp</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="android:tint">#41C1BA</item>
+    </style>
 </resources>
