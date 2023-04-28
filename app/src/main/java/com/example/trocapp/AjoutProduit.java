@@ -61,19 +61,15 @@ import Model.Produit;
 public class AjoutProduit extends AppCompatActivity {
 
     Button add;
-    //EditText nom_produit;
     TextInputEditText description_produit;
     TextInputEditText nom_produit;
     ChipGroup cat_choice;
-    List <String> choix_cat= new ArrayList<String>();
+    String choix_categorie;
     ImageView image_produit;
-
-
     DateTimeFormatter currentTime;
     String date_UP,image;
     Button camera ,gallerie;
     Uri image_uri;
-
     Produit produit;
 
 
@@ -98,15 +94,6 @@ public class AjoutProduit extends AppCompatActivity {
         camera = findViewById(R.id.camera);
         gallerie = findViewById(R.id.gallery);
 
-/*
-        //adapter pour inflate les categories dans le fichier xml situe dans les ressources
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.categories_produits, android.R.layout.simple_spinner_item);
-
-        //choix de la maniere dont la liste sera afficher
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-*/
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,36 +116,32 @@ public class AjoutProduit extends AppCompatActivity {
                 produit.setNom_produit(nom_pro);
                 produit.setDescription(description);
                 produit.setDate_Ajout(date_UP);
-                produit.setCategorie(choix_cat.toString());
+                produit.setCategorie(choix_categorie);
 
 
 
                 if(nom_pro.isEmpty() || description.isEmpty()){
                     Toast.makeText(AjoutProduit.this, "veuillez saisir toutes les champs", Toast.LENGTH_SHORT).show();
                 }else{
-
-                    //FirebaseDatabase.getInstance().getReference().child("Produits").push().setValue(produit);
                     Toast.makeText(AjoutProduit.this, "produit ajouter", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
 
+
         cat_choice.setOnCheckedStateChangeListener(new ChipGroup.OnCheckedStateChangeListener() {
             @Override
             public void onCheckedChanged(@NonNull ChipGroup group, @NonNull List<Integer> checkedIds) {
-
-                //Chip chip = (Chip)group.getChildAt(i);
                 for(int i=0;i<group.getChildCount();i++){
                     Chip chip = (Chip)group.getChildAt(i);
                     if(chip.isChecked()){
-                        choix_cat.add(chip.getText().toString());
+                        choix_categorie = (chip.getText().toString());
                     }
-
                 }
+
             }
         });
-
 
 
         // gestion du choix de l'image a partir de la gallerie

@@ -136,6 +136,8 @@
             android:id="@+id/chip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.181"
@@ -176,6 +178,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cat5" />
+            <com.google.android.material.chip.Chip
+
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cat6" />
 
         </com.google.android.material.chip.ChipGroup>
 
