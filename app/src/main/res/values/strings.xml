@@ -13,4 +13,30 @@
     <string name="description">Description produit</string>
     <string name="choix_cat">Choisir une Categorie</string>
     <string name="type_img">image/*</string>
+    <string-array name="countries">
+        <item>Morocco</item>
+
+        <!-- Ajoutez tous les pays que vous souhaitez inclure ici -->
+    </string-array>
+    <string-array name="maroc_cities">
+        <item>Casablanca</item>
+        <item>Rabat</item>
+        <item>Fès</item>
+        <item>Marrakech</item>
+        <item>Tanger</item>
+        <item>Agadir</item>
+        <item>Nador</item>
+        <item>El Jadida</item>
+        <item>Ben Guerir</item>
+        <item>Oujda</item>
+        <item>Taroudant</item>
+        <item>Dakhla</item>
+        <item>Guelmim</item>
+        <item>Essaouira</item>
+        <item>Kénitra</item>
+        <item>Laayoune</item>
+        <item>Ouarzazate</item>
+        <item>Meknès</item>
+        <!-- Ajoutez toutes les villes du Maroc que vous souhaitez inclure ici -->
+    </string-array>
 </resources>

@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="verttroc">#41c1ba</color>
     <color name="red">#FF0000</color>
+    <color name="ecrituretroc">#1d4355</color>
+    <color name="bluetroc">#289dd2</color>
 </resources>

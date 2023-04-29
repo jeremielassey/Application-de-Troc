@@ -38,6 +38,7 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
@@ -71,6 +72,8 @@ public class AjoutProduit extends AppCompatActivity {
     Button camera ,gallerie;
     Uri image_uri;
     Produit produit;
+
+    FirebaseAuth auth;
 
 
 
@@ -172,9 +175,12 @@ public class AjoutProduit extends AppCompatActivity {
     }
 
     private  void updateProduit(String url){
-        produit.setImage(url);
 
-        FirebaseDatabase.getInstance().getReference("Produits/").push().setValue(produit);
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        produit.setImage(url);
+        produit.setUserId(userId);
+
+        FirebaseDatabase.getInstance().getReference("Produits/").push().child(userId).setValue(produit);
 
     }
         private  void chargementImage(){

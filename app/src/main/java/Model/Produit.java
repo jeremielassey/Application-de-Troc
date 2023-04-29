@@ -7,14 +7,25 @@ public class Produit {
     String categorie="";
     String date_Ajout="";
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    String userId = "";
+
     public  Produit(){}
 
-    public Produit(String image, String nom_produit, String description, String categorie, String date_Ajout) {
+    public Produit(String image, String nom_produit, String description, String categorie, String date_Ajout,String id) {
         this.image = image;
         this.nom_produit = nom_produit;
         this.description = description;
         this.categorie = categorie;
         this.date_Ajout = date_Ajout;
+        this.userId = id;
     }
 
 
