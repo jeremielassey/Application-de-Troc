@@ -180,7 +180,7 @@ public class AjoutProduit extends AppCompatActivity {
         produit.setImage(url);
         produit.setUserId(userId);
 
-        FirebaseDatabase.getInstance().getReference("Produits/").push().child(userId).setValue(produit);
+        FirebaseDatabase.getInstance().getReference("Produits/").child(userId).push().setValue(produit);
 
     }
         private  void chargementImage(){
