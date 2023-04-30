@@ -11,4 +11,28 @@ public class UserData {
         this.address= address;
         this.description= description;
     }
+
+    public String getNomComplet() {
+        return nomComplet;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPays() {
+        return pays;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }
