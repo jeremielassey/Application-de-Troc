@@ -116,17 +116,9 @@ public class SignUpActivity extends AppCompatActivity {
                 UserData writeUserDetails = new UserData(nomComplet, phone, address, pays, ville, description);
 
 
-                //child(auth.getUid())
 
-                referenceProfile.push().setValue(writeUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
+
+
                 if (nomComplet.isEmpty()) {
                     signupNomComplet.setError("Nom cannot be empty");
                 }
@@ -154,6 +146,16 @@ public class SignUpActivity extends AppCompatActivity {
                             } else {
                                 Toast.makeText(SignUpActivity.this, "Signup Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
+                        }
+                    });
+
+                    referenceProfile.child(auth.getUid()).setValue(writeUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
                         }
                     });
                 }

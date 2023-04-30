@@ -61,7 +61,7 @@ import Model.Produit;
 
 public class AjoutProduit extends AppCompatActivity {
 
-    Button add;
+    Button add,cancel;
     TextInputEditText description_produit;
     TextInputEditText nom_produit;
     ChipGroup cat_choice;
@@ -96,6 +96,7 @@ public class AjoutProduit extends AppCompatActivity {
         image_produit = findViewById(R.id.ib_load_photo);
         camera = findViewById(R.id.camera);
         gallerie = findViewById(R.id.gallery);
+        cancel = findViewById(R.id.btn_cancel_product);
 
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +128,7 @@ public class AjoutProduit extends AppCompatActivity {
                     Toast.makeText(AjoutProduit.this, "veuillez saisir toutes les champs", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(AjoutProduit.this, "produit ajouter", Toast.LENGTH_SHORT).show();
+
                 }
 
             }
@@ -171,6 +173,13 @@ public class AjoutProduit extends AppCompatActivity {
             }
         });
 
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
     }
 
@@ -181,6 +190,8 @@ public class AjoutProduit extends AppCompatActivity {
         produit.setUserId(userId);
 
         FirebaseDatabase.getInstance().getReference("Produits/").child(userId).push().setValue(produit);
+
+        finish();
 
     }
         private  void chargementImage(){
