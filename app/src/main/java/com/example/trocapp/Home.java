@@ -96,7 +96,15 @@ public class Home extends AppCompatActivity {
                         final String getcategorie= elemnt.child("categorie").getValue(String.class);
                         final String getdescrip = elemnt.child("description").getValue(String.class);
                         final String getdate = elemnt.child("date_Ajout").getValue(String.class);
-                        final String getuser=resturnTroqueur((String) Produits.getKey());
+                        String getuser="";
+                        //final String getuser=resturnTroqueur((String) Produits.getKey());
+                        for(DataSnapshot user : snapshot.child("Registered Users").getChildren()){
+                            String id = user.getKey();
+                            if (id.equals(Produits.getKey())) {
+                                HashMap<String, Object> userData = (HashMap<String, Object>) user.getValue();
+                                getuser = (String) userData.get("nomComplet");
+                            }
+                        }
                         MyItems myItems = new MyItems(getcategorie,getdescrip, getImage, getnom_produit, getdate,getuser);
                             myItemsList.add(myItems);
                     }
