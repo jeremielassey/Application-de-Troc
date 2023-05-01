@@ -91,6 +91,7 @@ public class Home extends AppCompatActivity {
                 myItemsList.clear();
                 for(DataSnapshot Produits : snapshot.child("Produits").getChildren()){
                     for(DataSnapshot elemnt : Produits.getChildren()){
+
                     final String getnom_produit = elemnt.child("nom_produit").getValue(String.class);
                     final String getImage = elemnt.child("image").getValue(String.class);
                     final String getcategorie= elemnt.child("categorie").getValue(String.class);
@@ -104,6 +105,7 @@ public class Home extends AppCompatActivity {
                             HashMap<String, Object> userData = (HashMap<String, Object>) user.getValue();
                             getuser = (String) userData.get("nomComplet");
                         }
+
                     }
                     MyItems myItems = new MyItems(getcategorie,getdescrip, getImage, getnom_produit, getdate,getuser);
                     myItemsList.add(myItems);
