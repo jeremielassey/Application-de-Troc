@@ -18,7 +18,8 @@
         tools:targetApi="31">
         <activity
             android:name=".ProfilActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".SplahScreen"
             android:exported="true"
@@ -59,10 +60,7 @@
         <activity
             android:name=".AnnonceCategorisee"
             android:exported="false" />
-        <activity
-            android:name=".profil"
-            android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
+
         <activity
             android:name=".Catalogue"
             android:exported="false" />

@@ -1,14 +1,17 @@
 package com.example.trocapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,28 +21,37 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import fragments.Empty_Fragment;
-import fragments.Pending_Fragment;
+import com.example.trocapp.fragments.Empty_Fragment;
+import com.example.trocapp.fragments.Pending_Fragment;
 
 public class ProfilActivity extends AppCompatActivity {
-
     TabLayout tabl1;
     NestedScrollView NS1;
     Fragment frag;
     TextView nom;
     DatabaseReference databaseReference;
     String userId;
-    @SuppressLint("MissingInflatedId")
+    Toolbar toolbar ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_profil);
         tabl1=findViewById(R.id.tabl1);
         nom=findViewById(R.id.prenom);
+        toolbar = findViewById(R.id.app_toolbar1);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfilActivity.this, Home.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
-        //Chenger le nom propre a l'utilisateur
+        //Changer le nom propre a l'utilisateur
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange( DataSnapshot dataSnapshot) {

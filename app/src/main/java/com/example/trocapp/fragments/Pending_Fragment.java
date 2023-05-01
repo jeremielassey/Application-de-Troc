@@ -1,4 +1,4 @@
-package fragments;
+package com.example.trocapp.fragments;
 
 import android.os.Bundle;
 
