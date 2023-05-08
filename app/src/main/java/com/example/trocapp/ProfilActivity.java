@@ -1,14 +1,21 @@
 package com.example.trocapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
+
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,24 +29,25 @@ import fragments.Empty_Fragment;
 import fragments.Pending_Fragment;
 
 public class ProfilActivity extends AppCompatActivity {
-
     TabLayout tabl1;
     NestedScrollView NS1;
     Fragment frag;
     TextView nom;
     DatabaseReference databaseReference;
     String userId;
-    @SuppressLint("MissingInflatedId")
+    // Toolbar toolbar = findViewById(R.id.app_toolbar1);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_profil);
         tabl1=findViewById(R.id.tabl1);
         nom=findViewById(R.id.prenom);
+
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
-        //Chenger le nom propre a l'utilisateur
+        //Changer le nom propre a l'utilisateur
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange( DataSnapshot dataSnapshot) {
