@@ -1,6 +1,7 @@
 package com.example.trocapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,9 @@ public class adapter_recycle extends RecyclerView.Adapter<adapter_recycle.MyView
         holder.ed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                Intent intent = new Intent(context,EditProduit.class);
+                intent.putExtra("id_annonce",idann);
+                context.startActivity(intent);
             }
         });
         holder.del.setOnClickListener(new View.OnClickListener() {
