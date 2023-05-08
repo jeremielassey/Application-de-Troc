@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
++<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -19,7 +19,10 @@
         <activity
             android:name=".ProfilActivity"
             android:exported="false"
+<<<<<<< HEAD
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+=======
+>>>>>>> 0941d2d4fd34f3415828b1427397d4d67717c23b
             />
         <activity
             android:name=".SplahScreen"
@@ -67,6 +70,9 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProduit"
             android:exported="false" />
     </application>
 

@@ -121,7 +121,7 @@ public class Meuble extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 case R.id.menu_profil:
-                    Intent intent2 = new Intent(Meuble.this,profil.class);
+                    Intent intent2 = new Intent(Meuble.this,ProfilActivity.class);
                     startActivity(intent2);
                     return true;
                 case R.id.menu_chat:

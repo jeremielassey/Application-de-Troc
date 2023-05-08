@@ -6,6 +6,7 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+
 import android.widget.TextView;
 
 
@@ -25,8 +27,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import fragments.Empty_Fragment;
-import fragments.Pending_Fragment;
+import com.example.trocapp.fragments.Empty_Fragment;
+import com.example.trocapp.fragments.Pending_Fragment;
 
 public class ProfilActivity extends AppCompatActivity {
     TabLayout tabl1;
@@ -35,7 +37,9 @@ public class ProfilActivity extends AppCompatActivity {
     TextView nom;
     DatabaseReference databaseReference;
     String userId;
-    // Toolbar toolbar = findViewById(R.id.app_toolbar1);
+
+    Toolbar toolbar ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,15 @@ public class ProfilActivity extends AppCompatActivity {
         tabl1=findViewById(R.id.tabl1);
         nom=findViewById(R.id.prenom);
 
+        toolbar = findViewById(R.id.app_toolbar1);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfilActivity.this, Home.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();

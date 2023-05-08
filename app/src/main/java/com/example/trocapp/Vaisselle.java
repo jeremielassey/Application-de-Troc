@@ -122,7 +122,7 @@ public class Vaisselle extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 case R.id.menu_profil:
-                    Intent intent2 = new Intent(Vaisselle.this,profil.class);
+                    Intent intent2 = new Intent(Vaisselle.this,ProfilActivity.class);
                     startActivity(intent2);
                     return true;
                 case R.id.menu_chat:
