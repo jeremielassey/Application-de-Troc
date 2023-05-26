@@ -32,6 +32,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.trocapp.Adapter.MyAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.chip.Chip;
@@ -39,10 +40,14 @@ import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.Console;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -55,6 +60,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 import java.util.UUID;
 
 import Model.Produit;
@@ -184,12 +190,43 @@ public class AjoutProduit extends AppCompatActivity {
     }
 
     private  void updateProduit(String url){
-
+        //String[] produitID = new String[1];
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         produit.setImage(url);
         produit.setUserId(userId);
 
         FirebaseDatabase.getInstance().getReference("Produits/").child(userId).push().setValue(produit);
+
+
+        FirebaseDatabase.getInstance().getReference().addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot itemSnapshot : snapshot.child("Produits").getChildren()) {
+                    if (itemSnapshot.getKey().equals(userId)) {
+                        for(DataSnapshot elmnts: itemSnapshot.getChildren()){
+                            String produitID= elmnts.getKey();
+                            produit.setProduitID(produitID);
+                            System.out.println("id est "+produitID);
+                           }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("MyFragment", "Error getting data", error .toException());
+            }
+        });
+
+        Map<String, Object> updates = new HashMap<String,Object>();
+        updates.put("categorie",produit.getCategorie());
+        updates.put("nom_produit",produit.getNom_produit());
+        updates.put("produitID",produit.getProduitID());
+        updates.put("image",produit.getImage());
+        updates.put("description",produit.getDescription());
+        updates.put("date_Ajout",produit.getDate_Ajout());
+        updates.put("userId",produit.getUserId());
+        FirebaseDatabase.getInstance().getReference("Produits/").child(userId).child(produit.getProduitID()).updateChildren(updates);
 
         finish();
 

@@ -3,14 +3,17 @@ package com.example.trocapp;
 public class MyItems {
     private final String categorie, description, image, nom_produit, nom_troqueur;
     private final String date_Ajout;
+    //private final String hiddenText;
 
-    public MyItems(String categorie, String description, String image, String nom_produit,  String date_Ajout, String nom_troqueur) {
+    public MyItems(String categorie, String description, String image, String nom_produit, String date_Ajout, String nom_troqueur) {
         this.categorie = categorie;
         this.description = description;
         this.image = image;
         this.nom_produit = nom_produit;
         this.nom_troqueur = nom_troqueur;
         this.date_Ajout = date_Ajout;
+
+        //this.hiddenText = hiddenText;
     }
 
     public String getCategorie() {
@@ -36,4 +39,5 @@ public class MyItems {
     public String getNom_troqueur() {
         return nom_troqueur;
     }
+    //public String getHiddenText(){return hiddenText;}
 }

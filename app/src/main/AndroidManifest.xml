@@ -1,4 +1,4 @@
-+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -6,6 +6,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,12 +18,11 @@
         android:theme="@style/Theme.TrocApp"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_view_all"
+            android:exported="false" />
+        <activity
             android:name=".ProfilActivity"
             android:exported="false"
-<<<<<<< HEAD
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
-=======
->>>>>>> 0941d2d4fd34f3415828b1427397d4d67717c23b
             />
         <activity
             android:name=".SplahScreen"
@@ -54,7 +54,7 @@
             android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".AjoutProduit"
             android:exported="false" />
@@ -64,7 +64,6 @@
         <activity
             android:name=".AnnonceCategorisee"
             android:exported="false" />
-
         <activity
             android:name=".Catalogue"
             android:exported="false" />

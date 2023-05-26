@@ -7,6 +7,15 @@ public class Produit {
     String categorie="";
     String date_Ajout="";
 
+    public String getProduitID() {
+        return produitID;
+    }
+
+    public void setProduitID(String produitID) {
+        this.produitID = produitID;
+    }
+
+    String produitID="";
     public String getUserId() {
         return userId;
     }

@@ -74,6 +74,7 @@ public class adapter_recycle extends RecyclerView.Adapter<adapter_recycle.MyView
         //add categorie description and others
         TextView date_Ajout,nom_produit; Button ed,del;
         ImageView image;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             date_Ajout=itemView.findViewById(R.id.date);
@@ -81,6 +82,7 @@ public class adapter_recycle extends RecyclerView.Adapter<adapter_recycle.MyView
             image=itemView.findViewById(R.id.image);
             ed=itemView.findViewById(R.id.ed1);
             del=itemView.findViewById(R.id.del1);
+
 
 
         }
